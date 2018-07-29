@@ -2,6 +2,7 @@
 # Adding Windows VMs to DRS group
 #
 # Desc:    Search for Microsoft Windows VMs and add them to a DRS group
+#          (Can be executed in powershell)
 # Date:    02.03.2018
 # Author:  Sebastian Kirsch
 #
