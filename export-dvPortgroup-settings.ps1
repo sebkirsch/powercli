@@ -57,7 +57,7 @@ foreach($dvSW in Get-VDSwitch){
 		if($dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.GetType().Name -eq "VmwareDistributedVirtualSwitchPvlanSpec"){
 			$VLANType = "PrivateVLAN"
 			$VLANId = $dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.PvlanId
-        } elseif($dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.GetType().Name -eq "VmwareDistributedVirtualSwitchTrunkVlanSpec") {
+		} elseif($dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.GetType().Name -eq "VmwareDistributedVirtualSwitchTrunkVlanSpec") {
 			$VLANType = "VLANTrunk"
 			$VLANId = [string]::Join(',',($dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.VlanId | %{[string]$_.Start + "-" + [string]$_.End}))
 		} elseif($dvPG.ExtensionData.Config.DefaultPortConfig.Vlan.GetType().Name -eq "VmwareDistributedVirtualSwitchVlanIdSpec") {
@@ -66,10 +66,10 @@ foreach($dvSW in Get-VDSwitch){
 			if($VLANId -eq 0) {
 				$VLANType = "None"
 			}
-        } else {
+		} else {
 			$VLANType = "None"
 			$VLANId = ''
-        }	
+		}
 		$settings.VlanType = $VLANType
 		$settings.VlanId = $VLANId
 		
